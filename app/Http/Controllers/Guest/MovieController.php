@@ -8,7 +8,8 @@ use App\Models\Movie;
 class MovieController extends Controller
 {
     function index(){
-        $movies = Movie::all();
+        $movies = Movie::latest()->take(10)->orderBy('release_year', 'desc')->get();
+        // dd($movies);
         return view("index", compact("movies"));
     }
 }
