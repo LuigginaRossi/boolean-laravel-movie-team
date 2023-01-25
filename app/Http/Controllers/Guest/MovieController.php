@@ -10,7 +10,7 @@ class MovieController extends Controller
     function index(){
         $movies = Movie::latest()->take(10)->orderBy('release_year', 'desc')->get();
         // dd($movies);
-        return view("index", compact("movies"));
+        return view("layouts.app", compact("movies"));
     }
 }
 
